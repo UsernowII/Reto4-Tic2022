@@ -2,8 +2,8 @@
 #Mintic 2022 G46
 #Reto 4 Nomina
 #cesantias = {}
-employee = []
-valortotalhoras = []
+#employee = []
+#valortotalhoras = []
 H_trabajadas = int(input("Ingrese la cantidad de horas trabajadas: "))
 valor_Hora = int(input("Ingrese el valor por hora: "))
 #name = input("Ingrese su nombre completo: ")
@@ -11,7 +11,7 @@ valor_Hora = int(input("Ingrese el valor por hora: "))
 
 #import nomina as fan
 #print(fan.horasExtra(10))
-
+"""
 def valorHoras(ht,vh):
     valorHoras_normal = 0
     valorHoras_extra = 0
@@ -20,10 +20,25 @@ def valorHoras(ht,vh):
     else:
         valorHoras_normal = 40 * vh
         valorHoras_extra = ((ht-40) )* (1.5*vh)
-    return (valorHoras_normal,valorHoras_extra)
+    return (valorHoras_normal,valorHoras_extra)"""
+def vhn(a,b) :
+    if a >40 :
+        valorhoraNormal = (40 * b)
+        return valorhoraNormal
+    else:
+        valorhoraNormal = (a * b)
+        return valorhoraNormal
+
+def vhe (a,b) :
+  if a >40 :
+    valorhoraextra = ((a - 40) * (1.5 * b))
+    return valorhoraextra
+  else:
+    valorhoraextra= 0
+    return valorhoraextra
  
-def defsueldoBruto(x):
-    sueldoB = x[0] + x [1]
+def defsueldoBruto(a,b):
+    sueldoB = a + b
     return sueldoB
 
 def parfuncion(sueldoB):
@@ -57,8 +72,10 @@ def intCesfuncion (sueldoB):
 def vacfuncion (sueldoB):
     vac = sueldoB * 0.0417
     return vac
-valortotalhoras = valorHoras(H_trabajadas,valor_Hora)
-sueldobruto = defsueldoBruto(valortotalhoras)
+
+valorHoraExtra = vhe(H_trabajadas,valor_Hora)
+valorHoranormal =vhn(H_trabajadas,valor_Hora)
+sueldobruto = defsueldoBruto(valorHoranormal, valorHoraExtra)
 des_para = parfuncion(sueldobruto)
 des_eps = epsfuncion(sueldobruto)
 des_pension = penfuncion(sueldobruto)
@@ -67,8 +84,8 @@ primas = primafuncion(sueldobruto)
 cesantias = cesantiasfuncion(sueldobruto)
 intcesantias = intCesfuncion(sueldobruto)
 vacaciones = vacfuncion(sueldobruto)
-print(valortotalhoras[0])
-print(valortotalhoras[1])
+print(valorHoranormal)
+print(valorHoraExtra)
 print(sueldobruto)
 print(des_para)
 print(des_eps)
